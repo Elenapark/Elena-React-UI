@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Stack /> should render 1`] = `
+<div
+  class="sc-bcXHqe eVfqAP stack"
+  data-testid="stack-component"
+  direction="row"
+  spacing="8px"
+>
+  <div
+    data-testid="stack-child-comp"
+  >
+    <div>
+      child1
+    </div>
+    <div>
+      child2
+    </div>
+  </div>
+</div>
+`;
