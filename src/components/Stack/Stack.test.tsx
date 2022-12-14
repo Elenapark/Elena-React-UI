@@ -33,9 +33,9 @@ describe('<Stack />', () => {
   });
 
   describe('when children is invalid', () => {
-    it('should render valid children', () => {
+    it('should make its children to be valid anyway', () => {
       renderStack(invalidChildren);
-      expect(screen.queryAllByTestId('stack-child-comp')).toHaveLength(1);
+      expect(screen.queryAllByTestId('stack-child-comp')).toHaveLength(3);
     });
   });
 });

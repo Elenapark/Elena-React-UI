@@ -10,16 +10,12 @@ exports[`<Stack /> when children valid should render 1`] = `
   <div
     data-testid="stack-child-comp"
   >
-    <div>
-      child1
-    </div>
+    child1
   </div>
   <div
     data-testid="stack-child-comp"
   >
-    <div>
-      child2
-    </div>
+    child2
   </div>
 </div>
 `;

@@ -1,9 +1,9 @@
-import React, { Children, ReactElement, ReactNode } from 'react';
+import React, { isValidElement, ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import cx from 'classnames';
 
 import { color, ColorProps, flexbox, FlexboxProps, layout, LayoutProps, space, SpaceProps } from 'styled-system';
-import getValidChildren from './utils/getValidChildren';
+import getNodeText from './utils/getNodeText';
 
 export interface CustomStackProps {
   direction?: string;
@@ -22,13 +22,20 @@ const Stack: FCC<StackProps> = ({
   children,
   ...props
 }): ReactElement | null => {
-  const validChildren = getValidChildren(children) ?? [];
-  const refinedChildren = validChildren?.map((child, idx) => {
-    return (
-      <div key={`stack-item${idx}`} data-testid="stack-child-comp">
-        {child}
-      </div>
-    );
+  const refinedChildren = React.Children.map(children, (child, idx) => {
+    if (isValidElement(child)) {
+      return (
+        <div key={`stack-item${idx}`} data-testid="stack-child-comp">
+          {getNodeText(child)}
+        </div>
+      );
+    } else {
+      return (
+        <div key={`stack-item${idx}`} data-testid="stack-child-comp">
+          {child}
+        </div>
+      );
+    }
   });
 
   return (
