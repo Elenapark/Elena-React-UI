@@ -1,45 +1,41 @@
-import { getByTestId, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import Stack from './Stack';
 
-const childrenElement = (
-  <>
-    <div>child1</div>
-    <div>child2</div>
-  </>
-);
+const invalidChildren = [1, 'text', <div>child1</div>];
+const validChildren = [<div>child1</div>, <div>child2</div>];
 
-const defaultProps = {
-  direction: 'row',
-  children: childrenElement,
+const renderStack = (children: any) => {
+  const defaultProps = {
+    direction: 'row',
+    className: 'test',
+    children,
+  };
+  render(<Stack {...defaultProps} />);
 };
 
 describe('<Stack />', () => {
-  it('should render', () => {
-    render(<Stack {...defaultProps} />);
+  describe('when children valid', () => {
+    it('should render', () => {
+      renderStack(validChildren);
+      expect(screen.getByTestId('stack-component')).toMatchSnapshot();
+    });
 
-    expect(screen.getByTestId('stack-component')).toMatchSnapshot();
+    it('should render children', () => {
+      renderStack(validChildren);
+      expect(screen.getAllByTestId('stack-child-comp')).toHaveLength(2);
+    });
+
+    it('should allow custom classname', () => {
+      renderStack(validChildren);
+      expect(screen.getByTestId('stack-component')).toHaveProperty('className');
+    });
   });
 
-  it('should render children', () => {
-    render(<Stack {...defaultProps} />);
-    expect(screen.getByText(/child1/i)).toBeInTheDocument();
-    expect(screen.getByText(/child2/i)).toBeInTheDocument();
-  });
-
-  it('should allow custom classname', () => {
-    const customProps = {
-      ...defaultProps,
-      className: 'test',
-    };
-    render(<Stack {...customProps} />);
-
-    expect(screen.getByTestId('stack-component')).toHaveProperty('className');
-  });
-
-  it('only allows its children to be JSX element.', () => {
-    render(<Stack {...defaultProps} />);
-
-    expect(screen.getByTestId('stack-child-comp')).toBeInTheDocument();
+  describe('when children is invalid', () => {
+    it('should render valid children', () => {
+      renderStack(invalidChildren);
+      expect(screen.queryAllByTestId('stack-child-comp')).toHaveLength(1);
+    });
   });
 });

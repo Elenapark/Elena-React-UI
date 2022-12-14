@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Stack /> should render 1`] = `
+exports[`<Stack /> when children valid should render 1`] = `
 <div
-  class="sc-bcXHqe eVfqAP stack"
+  class="sc-bcXHqe eVfqAP stack test"
   data-testid="stack-component"
   direction="row"
   spacing="8px"
@@ -13,6 +13,10 @@ exports[`<Stack /> should render 1`] = `
     <div>
       child1
     </div>
+  </div>
+  <div
+    data-testid="stack-child-comp"
+  >
     <div>
       child2
     </div>
