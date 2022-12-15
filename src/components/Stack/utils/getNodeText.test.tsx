@@ -10,7 +10,6 @@ describe('getNodeText', () => {
     );
 
     const result = getNodeText(input);
-    console.log(result);
     expect(result).toBe('나는바보다');
   });
 });
