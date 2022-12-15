@@ -3,7 +3,7 @@ import React from 'react';
 import Stack from './Stack';
 
 const invalidChildren = [1, 'text', <div>child1</div>];
-const validChildren = [<div>child1</div>, <div>child2</div>];
+const validChildren = [<div id="add">child1</div>, <div>child2</div>];
 
 const renderStack = (children: any) => {
   const defaultProps = {
@@ -24,6 +24,7 @@ describe('<Stack />', () => {
     it('should render children', () => {
       renderStack(validChildren);
       expect(screen.getAllByTestId('stack-child-comp')).toHaveLength(2);
+      expect(screen.getByText('child1')).toHaveProperty('id');
     });
 
     it('should allow custom classname', () => {

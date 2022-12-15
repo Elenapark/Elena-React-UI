@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import cx from 'classnames';
 
 import { color, ColorProps, flexbox, FlexboxProps, layout, LayoutProps, space, SpaceProps } from 'styled-system';
-import getNodeText from './utils/getNodeText';
 
 export interface CustomStackProps {
   direction?: string;
@@ -24,11 +23,13 @@ const Stack: FCC<StackProps> = ({
 }): ReactElement | null => {
   const refinedChildren = React.Children.map(children, (child, idx) => {
     if (isValidElement(child)) {
-      return (
-        <div key={`stack-item${idx}`} data-testid="stack-child-comp">
-          {getNodeText(child)}
-        </div>
-      );
+      const clonedChild = React.cloneElement(child, {
+        ...child.props,
+        key: `stack-item${idx}`,
+        'data-testid': 'stack-child-comp',
+      });
+
+      return clonedChild;
     } else {
       return (
         <div key={`stack-item${idx}`} data-testid="stack-child-comp">

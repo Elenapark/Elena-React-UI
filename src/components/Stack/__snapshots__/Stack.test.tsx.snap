@@ -9,6 +9,7 @@ exports[`<Stack /> when children valid should render 1`] = `
 >
   <div
     data-testid="stack-child-comp"
+    id="add"
   >
     child1
   </div>
