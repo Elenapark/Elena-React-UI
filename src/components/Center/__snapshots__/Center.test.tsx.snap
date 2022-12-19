@@ -3,7 +3,7 @@
 exports[`<Center /> should render 1`] = `
 <div
   class="sc-bcXHqe hMTugh"
-  data-testid="box-comp"
+  data-testid="center-comp"
   display="flex"
 >
   I'm Center!

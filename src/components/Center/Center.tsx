@@ -9,7 +9,7 @@ const defaultStyles = {
 
 const Center: FCC<BoxProps> = ({ children, ...props }) => {
   return (
-    <Box {...defaultStyles} {...props}>
+    <Box {...defaultStyles} {...props} data-testid="center-comp">
       {children}
     </Box>
   );

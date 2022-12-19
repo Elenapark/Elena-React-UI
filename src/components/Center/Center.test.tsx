@@ -11,7 +11,7 @@ describe('<Center />', () => {
   it('should render', () => {
     render(<Center {...defaultProps} />);
 
-    expect(screen.getByTestId('box-comp')).toMatchSnapshot();
+    expect(screen.getByTestId('center-comp')).toMatchSnapshot();
   });
 
   it('should render children', () => {
@@ -23,8 +23,8 @@ describe('<Center />', () => {
   it('should have proper center styles', () => {
     render(<Center {...defaultProps} />);
 
-    expect(screen.getByTestId('box-comp')).toHaveStyle('display:flex');
-    expect(screen.getByTestId('box-comp')).toHaveStyle('justify-content:center');
-    expect(screen.getByTestId('box-comp')).toHaveStyle('align-items:center');
+    expect(screen.getByTestId('center-comp')).toHaveStyle(`
+    display:flex; justify-content:center;align-items:center; 
+    `);
   });
 });
