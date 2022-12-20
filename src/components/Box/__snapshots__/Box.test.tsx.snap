@@ -2,7 +2,7 @@
 
 exports[`<Box /> should render 1`] = `
 <div
-  class="sc-bcXHqe ifxEEh"
+  class="sc-bcXHqe kFhsOn"
   data-testid="box-comp"
 >
   Box
