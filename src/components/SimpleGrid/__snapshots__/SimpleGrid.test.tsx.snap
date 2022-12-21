@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SimpleGrid /> should render 1`] = `
+<div
+  class="sc-bcXHqe hMRnOh"
+  data-testid="simple-grid-comp"
+>
+  <div
+    data-testid="simple-grid-item-comp"
+  >
+    그리드1
+  </div>
+  <div
+    data-testid="simple-grid-item-comp"
+  >
+    그리드2
+  </div>
+</div>
+`;
