@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Meta } from '@storybook/react';
-import SimpleGrid, { SimpleGridProps } from './SimpleGrid';
+import { SimpleGrid, CustomGridProps } from './SimpleGrid';
 
 export default {
   title: 'SimpleGrid',
   component: SimpleGrid,
-} as Meta<SimpleGridProps>;
+} as Meta<CustomGridProps>;
 
 const style = {
   background: 'dodgerBlue',

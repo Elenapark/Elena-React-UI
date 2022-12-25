@@ -21,9 +21,9 @@ export interface SimpleGridProps {
   [x: string]: any;
 }
 
-export type CustomGridProps = SimpleGridProps & SpaceProps & LayoutProps & ColorProps & FlexboxProps & GridProps;
+export type CustomGridProps = SimpleGridProps & SpaceProps & ColorProps;
 
-const SimpleGrid: FCC<CustomGridProps> = ({ column = 2, spacingX = 10, spacingY = 10, children, ...props }) => {
+export const SimpleGrid: FCC<CustomGridProps> = ({ column = 2, spacingX = 10, spacingY = 10, children, ...props }) => {
   const refinedChildren = React.Children.map(children, (child, idx) => {
     if (isValidElement(child)) {
       const clonedChild = React.cloneElement(child, {
@@ -49,14 +49,9 @@ const SimpleGrid: FCC<CustomGridProps> = ({ column = 2, spacingX = 10, spacingY 
   );
 };
 
-export default SimpleGrid;
-
-const StyledSimpleGrid = styled.div<SimpleGridProps>`
+const StyledSimpleGrid = styled.div<CustomGridProps>`
   ${color}
-  ${flexbox}
-	${layout}
-	${space}
-	${grid}
+  ${space}
 
   display: grid;
   grid-template-columns: ${(props) => `repeat(${props.column},1fr)`};

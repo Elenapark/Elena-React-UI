@@ -13,3 +13,6 @@ export type { StackProps } from './components/Stack';
 
 export { ZStack } from './components/ZStack';
 export type { ZStackProps } from './components/ZStack';
+
+export { SimpleGrid } from './components/SimpleGrid';
+export type { CustomGridProps } from './components/SimpleGrid';
