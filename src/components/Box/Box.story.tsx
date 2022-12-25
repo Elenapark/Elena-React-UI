@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Meta } from '@storybook/react';
-import Box, { BoxProps } from './Box';
+import { Box, BoxProps } from './Box';
 
 export default {
   title: 'Box',

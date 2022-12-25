@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BoxProps } from '../Box/Box';
+import { Box, BoxProps } from '../Box/Box';
 
 const defaultStyles = {
   display: 'flex',
@@ -7,12 +7,12 @@ const defaultStyles = {
   alignItems: 'center',
 };
 
-const Center: FCC<BoxProps> = ({ children, ...props }) => {
+export type CenterProps = BoxProps;
+
+export const Center: FCC<CenterProps> = ({ children, ...props }) => {
   return (
     <Box {...defaultStyles} {...props} data-testid="center-comp">
       {children}
     </Box>
   );
 };
-
-export default Center;

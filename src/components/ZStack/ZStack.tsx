@@ -3,15 +3,14 @@ import cx from 'classnames';
 import React, { isValidElement, ReactNode } from 'react';
 import { color, ColorProps, flexbox, FlexboxProps, layout, LayoutProps, space, SpaceProps } from 'styled-system';
 
-export type ZStackProps = SpaceProps & LayoutProps & ColorProps & FlexboxProps;
-
-export interface CustomZStackProps {
+interface CustomZStackProps {
   className?: string;
   children?: ReactNode;
   [x: string]: any;
 }
+export type ZStackProps = CustomZStackProps & SpaceProps & LayoutProps & ColorProps & FlexboxProps;
 
-const ZStack: FCC<CustomZStackProps> = ({ className, children, ...props }) => {
+export const ZStack: FCC<ZStackProps> = ({ className, children, ...props }) => {
   const refinedChildren = React.Children.map(children, (child, idx) => {
     const positionStyle: React.CSSProperties = {
       zIndex: idx,
@@ -27,6 +26,7 @@ const ZStack: FCC<CustomZStackProps> = ({ className, children, ...props }) => {
       return clonedChild;
     }
   });
+
   return (
     <StyledZStack data-testid="zstack-comp" className={cx('zstack', className)} {...props}>
       {refinedChildren}
@@ -34,9 +34,7 @@ const ZStack: FCC<CustomZStackProps> = ({ className, children, ...props }) => {
   );
 };
 
-export default ZStack;
-
-const StyledZStack = styled.div<CustomZStackProps>`
+const StyledZStack = styled.div<ZStackProps>`
   ${space}
   ${layout} 
   ${color}  

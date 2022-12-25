@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { Meta } from '@storybook/react';
-import ZStack, { CustomZStackProps } from './ZStack';
-import Box from '../Box/Box';
+import { Box } from '../Box/Box';
+import { ZStack, ZStackProps } from './ZStack';
 
 const COLOR = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
 export default {
   title: 'ZStack',
   component: ZStack,
-} as Meta<CustomZStackProps>;
+} as Meta<ZStackProps>;
 
 export const Default: FC = () => {
   return (

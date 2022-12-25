@@ -23,8 +23,6 @@ const StyledBox = styled.div`
 
 export type BoxProps = PositionProps & SpaceProps & LayoutProps & ColorProps & FlexboxProps;
 
-const Box: FCC<BoxProps> = (props: any) => {
+export const Box: FCC<BoxProps> = (props: any) => {
   return <StyledBox {...props} data-testid={props['data-testid'] ?? 'box-comp'} />;
 };
-
-export default Box;

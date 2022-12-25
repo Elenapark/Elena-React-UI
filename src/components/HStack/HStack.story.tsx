@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Meta } from '@storybook/react';
-import HStack from './HStack';
-import { CustomStackProps } from 'components/Stack';
+import { HStack } from './HStack';
+import { StackProps } from '../Stack/Stack';
 
 export default {
   title: 'HStack',
   component: HStack,
-} as Meta<Omit<CustomStackProps, 'direction'>>;
+} as Meta<Omit<StackProps, 'direction'>>;
 
 export const Default: FC = () => {
   return (
