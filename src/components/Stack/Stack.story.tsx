@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Meta } from '@storybook/react';
-import Stack, { CustomStackProps } from './Stack';
+import { Stack, StackProps } from './Stack';
 
 export default {
   title: 'Stack',
   component: Stack,
-} as Meta<CustomStackProps>;
+} as Meta<StackProps>;
 
 export const Default: FC = () => {
   return (

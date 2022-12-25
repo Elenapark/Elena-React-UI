@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import { color, ColorProps, flexbox, FlexboxProps, layout, LayoutProps, space, SpaceProps } from 'styled-system';
 
-export interface CustomStackProps {
+interface CustomStackProps {
   direction?: string;
   spacing?: number | string;
   className?: string;
@@ -14,7 +14,7 @@ export interface CustomStackProps {
 
 export type StackProps = CustomStackProps & SpaceProps & LayoutProps & ColorProps & FlexboxProps;
 
-const Stack: FCC<StackProps> = ({
+export const Stack: FCC<StackProps> = ({
   direction = 'column',
   spacing = '8px',
   className,
@@ -52,9 +52,7 @@ const Stack: FCC<StackProps> = ({
   );
 };
 
-export default Stack;
-
-const StyledStack = styled.div<CustomStackProps>`
+const StyledStack = styled.div<StackProps>`
   ${space}
   ${layout} 
   ${color}  

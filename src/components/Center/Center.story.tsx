@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 import { Meta } from '@storybook/react';
-import Center from './Center';
-import { BoxProps } from 'components/Box';
+import { Center, CenterProps } from './Center';
 
 export default {
   title: 'Center',
   component: Center,
-} as Meta<BoxProps>;
+} as Meta<CenterProps>;
 
 const styles = {
   backgroundColor: 'tomato',
