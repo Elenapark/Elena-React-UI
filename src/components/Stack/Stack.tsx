@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import cx from 'classnames';
 
 import { color, ColorProps, flexbox, FlexboxProps, layout, LayoutProps, space, SpaceProps } from 'styled-system';
+import useRefinedChildren from '../../hooks/use-refined-children';
 
 interface CustomStackProps {
   direction?: string;
@@ -21,6 +22,7 @@ export const Stack: FCC<StackProps> = ({
   children,
   ...props
 }): ReactElement | null => {
+  const tmp = useRefinedChildren({children});
   const refinedChildren = React.Children.map(children, (child, idx) => {
     if (isValidElement(child)) {
       const clonedChild = React.cloneElement(child, {
