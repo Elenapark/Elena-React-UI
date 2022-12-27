@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import Center from './Center';
+import {Center} from './Center';
 
 const children = "I'm Center!";
 
@@ -11,7 +11,7 @@ describe('<Center />', () => {
   it('should render', () => {
     render(<Center {...defaultProps} />);
 
-    expect(screen.getByTestId('center-comp')).toMatchSnapshot();
+    expect(screen.getByTestId('center-comp')).toBeInTheDocument();
   });
 
   it('should render children', () => {

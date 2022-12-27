@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleGrid from './SimpleGrid';
+import {SimpleGrid} from './SimpleGrid';
 import { render, screen } from '@testing-library/react';
 
 const children = [<div>그리드1</div>, <div>그리드2</div>];
@@ -14,7 +14,7 @@ const defaultProps = {
 describe('<SimpleGrid />', () => {
   it('should render', () => {
     render(<SimpleGrid {...defaultProps} />);
-    expect(screen.getByTestId('simple-grid-comp')).toMatchSnapshot();
+    expect(screen.getByTestId('simple-grid-comp')).toBeInTheDocument();
   });
 
   it('should render children', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Box from './Box';
+import {Box} from './Box';
 
 const defaultProps = {
   onClick: jest.fn(),
@@ -11,7 +11,7 @@ describe('<Box />', () => {
   it('should render', () => {
     render(<Box {...defaultProps} />);
 
-    expect(screen.getByTestId('box-comp')).toMatchSnapshot();
+    expect(screen.getByTestId('box-comp')).toBeInTheDocument();
   });
 
   it('should render children', () => {

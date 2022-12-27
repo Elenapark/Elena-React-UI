@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import Stack from './Stack';
+import {Stack} from './Stack';
 
 const invalidChildren = [1, 'text', <div>child1</div>];
 const validChildren = [<div id="add">child1</div>, <div>child2</div>];
@@ -18,7 +18,7 @@ describe('<Stack />', () => {
   describe('when children valid', () => {
     it('should render', () => {
       renderStack(validChildren);
-      expect(screen.getByTestId('stack-component')).toMatchSnapshot();
+      expect(screen.getByTestId('stack-component')).toBeInTheDocument();
     });
 
     it('should render children', () => {

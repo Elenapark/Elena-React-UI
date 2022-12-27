@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import Box from '../Box/Box';
+import {Box} from '../Box/Box';
 import React from 'react';
-import ZStack from './ZStack';
+import {ZStack} from './ZStack';
 
 const COLOR = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
@@ -32,7 +32,7 @@ const renderStack = () => {
 describe('<ZStack  />', () => {
   it('should render', () => {
     renderStack();
-    expect(screen.getByTestId('zstack-comp')).toMatchSnapshot();
+    expect(screen.getByTestId('zstack-comp')).toBeInTheDocument();
   });
 
   it('should render children', () => {
