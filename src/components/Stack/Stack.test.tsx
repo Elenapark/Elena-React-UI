@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import {Stack} from './Stack';
+import { Stack } from './Stack';
 
 const invalidChildren = [1, 'text', <div>child1</div>];
 const validChildren = [<div id="add">child1</div>, <div>child2</div>];
@@ -8,7 +8,7 @@ const validChildren = [<div id="add">child1</div>, <div>child2</div>];
 const renderStack = (children: any) => {
   const defaultProps = {
     direction: 'row',
-    className: 'test',
+    className: 'stack',
     children,
   };
   render(<Stack {...defaultProps} />);

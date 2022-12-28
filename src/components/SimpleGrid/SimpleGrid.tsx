@@ -1,46 +1,28 @@
-import React, { isValidElement } from 'react';
+import useRefinedChildren from '../../hooks/use-refined-children';
+import React from 'react';
 import styled from 'styled-components';
-import {
-  color,
-  ColorProps,
-  flexbox,
-  FlexboxProps,
-  layout,
-  LayoutProps,
-  space,
-  SpaceProps,
-  grid,
-  GridProps,
-} from 'styled-system';
+import { color, ColorProps, space, SpaceProps } from 'styled-system';
 
 export interface SimpleGridProps {
   column: number;
   spacingX?: number | string;
   spacingY?: number | string;
   children?: React.ReactNode;
+  className?: string;
   [x: string]: any;
 }
 
 export type CustomGridProps = SimpleGridProps & SpaceProps & ColorProps;
 
-export const SimpleGrid: FCC<CustomGridProps> = ({ column = 2, spacingX = 10, spacingY = 10, children, ...props }) => {
-  const refinedChildren = React.Children.map(children, (child, idx) => {
-    if (isValidElement(child)) {
-      const clonedChild = React.cloneElement(child, {
-        ...child.props,
-        key: `SimpleGrid-item${idx}`,
-        'data-testid': 'simple-grid-item-comp',
-      });
-
-      return clonedChild;
-    } else {
-      return (
-        <div key={`SimpleGrid-item${idx}`} data-testid="simple-grid-item-comp">
-          {child}
-        </div>
-      );
-    }
-  });
+export const SimpleGrid: FCC<CustomGridProps> = ({
+  column = 2,
+  spacingX = 10,
+  spacingY = 10,
+  children,
+  className,
+  ...props
+}) => {
+  const refinedChildren = useRefinedChildren({ children, className });
 
   return (
     <StyledSimpleGrid data-testid="simple-grid-comp" column={column} spacingX={spacingX} spacingY={spacingY} {...props}>

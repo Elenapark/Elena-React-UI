@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import cx from 'classnames';
-import React, { isValidElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { color, ColorProps, flexbox, FlexboxProps, layout, LayoutProps, space, SpaceProps } from 'styled-system';
 import useRefinedChildren from '../../hooks/use-refined-children';
 
@@ -15,13 +15,12 @@ export type ZStackProps = CustomZStackProps & SpaceProps & LayoutProps & ColorPr
 
 export const ZStack: FCC<ZStackProps> = ({ className, children, ...props }) => {
   const refinedChildren = useRefinedChildren({
-    children, style: {
-      zIndex: idx,
-    },
+    children,
+    className,
   });
 
   return (
-    <StyledZStack data-testid='zstack-comp' className={cx('zstack', className)} {...props}>
+    <StyledZStack data-testid="zstack-comp" className={cx('zstack', className)} {...props}>
       {refinedChildren}
     </StyledZStack>
   );

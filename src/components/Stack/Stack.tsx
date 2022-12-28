@@ -22,24 +22,7 @@ export const Stack: FCC<StackProps> = ({
   children,
   ...props
 }): ReactElement | null => {
-  const tmp = useRefinedChildren({children});
-  const refinedChildren = React.Children.map(children, (child, idx) => {
-    if (isValidElement(child)) {
-      const clonedChild = React.cloneElement(child, {
-        ...child.props,
-        key: `stack-item${idx}`,
-        'data-testid': 'stack-child-comp',
-      });
-
-      return clonedChild;
-    } else {
-      return (
-        <div key={`stack-item${idx}`} data-testid="stack-child-comp">
-          {child}
-        </div>
-      );
-    }
-  });
+  const refinedChildren = useRefinedChildren({ children, className });
 
   return (
     <StyledStack
