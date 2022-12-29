@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import {Box} from '../Box/Box';
+import { Box } from '../Box/Box';
 import React from 'react';
-import {ZStack} from './ZStack';
+import { ZStack } from './ZStack';
 
 const COLOR = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
@@ -23,7 +23,7 @@ const children = COLOR.map((_, idx) => {
 
 const renderStack = () => {
   const defaultProps = {
-    className: 'test',
+    className: 'zstack',
     children,
   };
   render(<ZStack {...defaultProps} />);
@@ -38,12 +38,5 @@ describe('<ZStack  />', () => {
   it('should render children', () => {
     renderStack();
     expect(screen.getAllByTestId('zstack-child-comp')).toHaveLength(6);
-  });
-
-  it('should have proper attribute', () => {
-    renderStack();
-    COLOR.map((_, idx) => {
-      return expect(screen.getByText(`box${idx}`)).toHaveAttribute('style', `z-index: ${idx};`);
-    });
   });
 });

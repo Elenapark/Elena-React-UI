@@ -15,7 +15,7 @@ export const Default: FC = () => {
     <ZStack>
       {COLOR.map((_, idx) => {
         return (
-          <Box bg={COLOR[idx]} position="absolute" top={idx * 10} left={idx * 10} width={100} height={100}>
+          <Box bg={COLOR[idx]} position="absolute" top={idx * 10} left={idx * 10} zIndex={idx} width={100} height={100}>
             {`box${idx}`}
           </Box>
         );

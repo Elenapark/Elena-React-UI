@@ -1,30 +1,22 @@
 import styled from 'styled-components';
 import cx from 'classnames';
-import React, { isValidElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { color, ColorProps, flexbox, FlexboxProps, layout, LayoutProps, space, SpaceProps } from 'styled-system';
+import useRefinedChildren from '../../hooks/use-refined-children';
 
 interface CustomZStackProps {
   className?: string;
   children?: ReactNode;
+
   [x: string]: any;
 }
+
 export type ZStackProps = CustomZStackProps & SpaceProps & LayoutProps & ColorProps & FlexboxProps;
 
 export const ZStack: FCC<ZStackProps> = ({ className, children, ...props }) => {
-  const refinedChildren = React.Children.map(children, (child, idx) => {
-    const positionStyle: React.CSSProperties = {
-      zIndex: idx,
-    };
-    if (isValidElement(child)) {
-      const clonedChild = React.cloneElement(child, {
-        ...child.props,
-        key: `zstack-item${idx}`,
-        'data-testid': 'zstack-child-comp',
-        style: { ...positionStyle, ...child.props.style },
-      });
-
-      return clonedChild;
-    }
+  const refinedChildren = useRefinedChildren({
+    children,
+    className,
   });
 
   return (
@@ -36,8 +28,8 @@ export const ZStack: FCC<ZStackProps> = ({ className, children, ...props }) => {
 
 const StyledZStack = styled.div<ZStackProps>`
   ${space}
-  ${layout} 
-  ${color}  
-  ${flexbox} 
-  position:relative;
+  ${layout}
+  ${color}
+  ${flexbox}
+  position: relative;
 `;

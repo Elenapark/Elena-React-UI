@@ -1,6 +1,3 @@
-export { Button } from './components/Button';
-export type { IButtonProps } from './components/Button';
-
 export { Box } from './components/Box';
 export type { BoxProps } from './components/Box';
 
