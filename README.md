@@ -26,3 +26,7 @@ const Example = () => {
   );
 };
 ```
+
+## Storybook Link
+
+https://63b623ea3d84d2d5f2f990f0-npnxojqsph.chromatic.com/
