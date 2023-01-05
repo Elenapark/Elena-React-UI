@@ -1,4 +1,4 @@
-import React, { isValidElement, ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import cx from 'classnames';
 

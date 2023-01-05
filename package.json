@@ -2,11 +2,13 @@
   "name": "elena-react-ui",
   "version": "0.1.1",
   "description": "Elena's personal React UI components built with React",
-  "author": "Sungeun Park",
+  "author": {
+    "name": "Sungeun Park"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Elenapark/my_own_component.git"
+    "url": "git+ssh://git@github.com/Elenapark/my_own_component.git"
   },
   "keywords": [
     "personal-ui-library",
@@ -32,6 +34,7 @@
     "start": "NODE_ENV=development BABEL_ENV=development yarn storybook",
     "storybook": "rimraf dist && start-storybook -p 6060",
     "storybook:build": "rimraf dist && build-storybook",
+    "build:storybook": "build-storybook",
     "build": "rimraf dist && NODE_ENV=production BABEL_ENV=production rollup -c",
     "test": "jest",
     "test:coverage": "jest --coverage --forceExit --colors",
@@ -115,6 +118,7 @@
     "babel-plugin-named-asset-import": "^0.3.8",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-react-app": "^10.0.1",
+    "chromatic": "^6.14.0",
     "css-loader": "^6.7.1",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
@@ -173,5 +177,7 @@
     "trim-newlines": "^3.0.1",
     "trim": "^0.0.3",
     "postcss": "^8.4.17"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "elena-react-ui@0.1.1"
 }
